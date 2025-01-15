@@ -67,4 +67,34 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
                   } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot
+                    return Text('Error: ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    final weather = snapshot.data!;
+                    return Column(
+                      children: [
+                        Text(
+                          weather.cityName,
+                          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${weather.temperature}°C',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        Text(
+                          weather.description,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Text('No data available');
+                  }
+                },
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+    

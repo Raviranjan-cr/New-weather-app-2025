@@ -1,7 +1,7 @@
 name: weather_app
 description: A simple weather app in Flutter.
 
-publish_to: 'none' # Remove this line if you want to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
